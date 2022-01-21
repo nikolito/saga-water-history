@@ -7,6 +7,7 @@
 
 データ入力画面の画像
 ![データ入力画面](https://user-images.githubusercontent.com/2604408/150478503-839cd712-68d6-422b-b76f-c35c033e02d2.png)
+<img src="https://user-images.githubusercontent.com/2604408/150478503-839cd712-68d6-422b-b76f-c35c033e02d2.png" width="200px">
 
 ## 概要
 - オープンデータ（例えば国土地理院の地図タイルやハザードマップなど）のリンクを集めます
