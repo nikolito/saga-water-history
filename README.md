@@ -11,6 +11,10 @@
 - 「佐賀県の災害歴史遺産」佐賀県防災士会 誠文堂印刷株式会社 平成27年から抽出した[地理データ](https://docs.google.com/spreadsheets/d/1VPCFGAjPtlZ-VbG1cnmNBH4UURTKLKXuFp2ebWKoxck/edit#gid=0)（入力者はanonymousに変えています）
 - 「[歴史地名データ](https://www.nihu.jp/ja/publication/source_map)」大学共同利用機関法人人間文化研究機構、および、京都大学東南アジア地域研究研究所を主体とするH-GIS研究会 （佐賀県（肥前国）抜粋）　
 
+### 歴史地名データについて補足
+
+佐賀県に関連する歴史地名データ(saga-ogi-placename.csv)については、地名を構成する漢字の中に水にまつわる部首・造りを含むものを青丸でマークしてみました
+
 
 ## 特徴
 
