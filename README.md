@@ -5,8 +5,7 @@
 - 多人数で書籍などの紙資料から地理データを抜き出してマッピングするために、データ入力ができるだけ簡単になるようにしたツールです
 - https://winter.ai.is.saga-u.ac.jp/map/map.php にデータ入力結果を載せています
 
-データ入力画面の画像
-![データ入力画面](https://user-images.githubusercontent.com/2604408/150478503-839cd712-68d6-422b-b76f-c35c033e02d2.png)
+### データ入力画面の画像
 <img src="https://user-images.githubusercontent.com/2604408/150478503-839cd712-68d6-422b-b76f-c35c033e02d2.png" width="200px">
 
 ## 概要
