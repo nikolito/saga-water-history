@@ -1,9 +1,18 @@
 # 佐賀水歴史マップ（UDC2021）
+
 オープンデータと地元の紙資料を地理データにおこして同じ地図に重ねてマッピングするための簡単なツールです
-Google API Clientでスプレッドシートのデータを読み書きします
-https://github.com/googleapis/google-api-php-client
+Leaflet, Google API Clientでスプレッドシートのデータを読み書きします
+
+この水歴史マップには以下のデータが入っています
+- 「電子国土基本図」国土地理院
+- 「国管理河川_洪水浸水想定区域（想定最大規模）」国土交通省各地方整備局（浸水ハザードマップ）
+- 「治水地形分類図 更新版」国土地理院
+- 「佐賀県の災害歴史遺産」佐賀県防災士会 誠文堂印刷株式会社 平成27年から抽出した[地理データ](https://docs.google.com/spreadsheets/d/1VPCFGAjPtlZ-VbG1cnmNBH4UURTKLKXuFp2ebWKoxck/edit#gid=0)（入力者はanonymousに変えています）
+- 「歴史地名データ」佐賀
+- 「治水地形分類図」
 
 ## 特徴
+
 - グループで書籍などの紙資料から地理データを抜き出してマッピングするために、データ入力ができるだけ簡単になるようにしました
 - https://winter.ai.is.saga-u.ac.jp/water-map/map.php にデータ入力結果を載せています
 - 以下の画像はグループで入力するときのデータ入力画面です
