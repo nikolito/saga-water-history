@@ -4,7 +4,7 @@
 
 [Leaflet](https://leafletjs.com)でブラウザでの地理情報可視化, [Google API Client](https://github.com/googleapis/google-api-ruby-client)でスプレッドシートのデータを読み書きします
 
-この水歴史マップには以下のデータが入っています
+この水歴史マップでは以下のデータを引用しています
 - 「[電子国土基本図](https://maps.gsi.go.jp/development/ichiran.html)」国土地理院
 - 「[国管理河川_洪水浸水想定区域（想定最大規模）](https://disaportal.gsi.go.jp/hazardmap/copyright/opendata.html#l2shinsuishin)」国土交通省各地方整備局（浸水ハザードマップ）
 - 「[治水地形分類図 更新版](https://maps.gsi.go.jp/development/ichiran.html)」国土地理院
