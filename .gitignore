@@ -1,3 +1,4 @@
 .htaccess
 .htpasswd
 /vender
+google-spread-sheet-api.php
