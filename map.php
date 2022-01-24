@@ -166,21 +166,21 @@
 	?>
 
 	let data_memorials = <?php
-							$vals = [];
-							print "[";
-							foreach ($records as $record) {
-								// 緯度経度が入っているデータのみプロットする
-								if ($record[1] != "" && $record[2] != "" && is_numeric($record[1]) && is_numeric($record[2])) {
-									foreach ($record as $v) {
-										$v2[] = '"' . $v . '"';
-									}
-									$vals[] = ("[" . implode(",", $v2) . "]");
-									$v2 = [];
-								}
-							}
-							print(implode(",", $vals));
-							print "]";
-							?>;	
+												$vals = [];
+												print "[";
+												foreach ($records as $record) {
+													// 緯度経度が入っているデータのみプロットする
+													if ($record[1] != "" && $record[2] != "" && is_numeric($record[1]) && is_numeric($record[2])) {
+														foreach ($record as $v) {
+															$v2[] = '"' . $v . '"';
+														}
+														$vals[] = ("[" . implode(",", $v2) . "]");
+														$v2 = [];
+													}
+												}
+												print(implode(",", $vals));
+												print "]";
+												?>;
 
 	let k = 0;
 	let markers_wm = [];
@@ -196,7 +196,9 @@
 	});
 
 	while (data_memorials.length > k) {
-		markers_wm[k] = L.marker([data_memorials[k][1], data_memorials[k][2]], {icon: greenIcon});
+		markers_wm[k] = L.marker([data_memorials[k][1], data_memorials[k][2]], {
+			icon: greenIcon
+		});
 
 		markers_wm[k]
 			.bindTooltip(data_memorials[k][0], {
@@ -209,25 +211,24 @@
 		k += 1;
 	}
 
-	// 自然災害伝承碑（国土地理院）
+	// 自然災害伝承碑（国土地理院）geojsonを使用
 	function onEachFeature(feature, layer) {
-    // does this feature have a property named popupContent?
-    if (feature.properties) {
-        layer
+		if (feature.properties) {
+			layer
 				.bindTooltip(feature.properties.碑名, {
-				permanent: false,
-				offset: [0, 0],
-				direction: 'auto'
+					permanent: false,
+					offset: [0, 0],
+					direction: 'auto'
 				})
 				.bindPopup(
-					"<h3>自然災害伝承碑（国土地理院）</h3><h2>" + feature.properties.碑名 + "</h2><p>"
-					+ "建立年　" + feature.properties.建立年 + "<br>"
-					+ "所在地　" + feature.properties.所在地 + "<br>"
-					+ "災害名　" + feature.properties.災害名 + "<br>"
-					+ "災害種別　" + feature.properties.災害種別 + "<br>"
-					+ "伝承内容　" + feature.properties.伝承内容 + "</p>"
+					"<h3>自然災害伝承碑（国土地理院）</h3><h2>" + feature.properties.碑名 + "</h2><p>" +
+					"建立年　" + feature.properties.建立年 + "<br>" +
+					"所在地　" + feature.properties.所在地 + "<br>" +
+					"災害名　" + feature.properties.災害名 + "<br>" +
+					"災害種別　" + feature.properties.災害種別 + "<br>" +
+					"伝承内容　" + feature.properties.伝承内容 + "</p>"
 				);
-    }
+		}
 	}
 
 	const data_denshouhi = [<?php print(file_get_contents('shizen_saigai_denshouhi_20220114.geojson')); ?>];
@@ -236,12 +237,15 @@
 	}).addTo(wmGroup);
 
 
-	var marker = L.marker([33.0,130.0], {icon: greenIcon});
+	var marker = L.marker([33.0, 130.0], {
+		icon: greenIcon
+	});
 
+	//入力作業するときは、コメントアウト部分を解除
 	//Mapをクリックした時ピンを立ててフォームに緯度経度を自動入力
 	// function onMapClick(e) {
 	// 	marker.on('click', function() { map.removeLayer(marker); });
-			
+
 	// 	marker
 	// 			.setLatLng(e.latlng)
 	// 			.bindPopup('<input id="copyTarget" type="text" value="' + e.latlng.lat + ',' + e.latlng.lng + '" readonly><button onclick="copyToClipboard();">copy</button><span id="copied" style="color: green; font-size: xx-small;"></span>')
@@ -278,8 +282,7 @@
 
 	//OpacityControl
 	L.control.opacity(
-		colorLayer,
-		{
+		colorLayer, {
 			collapsed: true
 		}
 	).addTo(map);
@@ -307,7 +310,6 @@
 			}).bindTooltip('<p>現在地 (' + evloc.latitude + ',' + evloc.longitude + ')</p>').openTooltip().addTo(map);
 		} else {
 			myLoc.setLatLng(evloc.latlng);
-			//console.log(ev.latlng);
 		}
 	});
 	map.setView([33.26354300, 130.30083500], 13);
