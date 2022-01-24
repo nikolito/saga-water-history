@@ -180,18 +180,23 @@
 							}
 							print(implode(",", $vals));
 							print "]";
-							?>;
+							?>;	
 
 	let k = 0;
 	let markers_wm = [];
 	let wmGroup = L.layerGroup().addTo(map);
 
-	// wmIcon = L.icon({
-
-	// })
+	var greenIcon = L.icon({
+		iconUrl: 'marker-icon-2x-green.png',
+		shadowUrl: 'marker-shadow.png',
+		iconSize: [25, 41],
+		iconAnchor: [12, 41],
+		popupAnchor: [1, -34],
+		shadowSize: [41, 41]
+	});
 
 	while (data_memorials.length > k) {
-		markers_wm[k] = L.marker([data_memorials[k][1], data_memorials[k][2]]);
+		markers_wm[k] = L.marker([data_memorials[k][1], data_memorials[k][2]], {icon: greenIcon});
 
 		markers_wm[k]
 			.bindTooltip(data_memorials[k][0], {
@@ -204,29 +209,46 @@
 		k += 1;
 	}
 
+	// 自然災害伝承碑（国土地理院）
+	function onEachFeature(feature, layer) {
+    // does this feature have a property named popupContent?
+    if (feature.properties) {
+        layer
+				.bindTooltip(feature.properties.碑名, {
+				permanent: false,
+				offset: [0, 0],
+				direction: 'auto'
+				})
+				.bindPopup(
+					"<h3>自然災害伝承碑（国土地理院）</h3><h2>" + feature.properties.碑名 + "</h2><p>"
+					+ "建立年　" + feature.properties.建立年 + "<br>"
+					+ "所在地　" + feature.properties.所在地 + "<br>"
+					+ "災害名　" + feature.properties.災害名 + "<br>"
+					+ "災害種別　" + feature.properties.災害種別 + "<br>"
+					+ "伝承内容　" + feature.properties.伝承内容 + "</p>"
+				);
+    }
+	}
 
-	var greenIcon = L.icon({
-		iconUrl: 'marker-icon-2x-green.png',
-		shadowUrl: 'marker-shadow.png',
-		iconSize: [25, 41],
-		iconAnchor: [12, 41],
-		popupAnchor: [1, -34],
-		shadowSize: [41, 41]
-	});
+	const data_denshouhi = [<?php print(file_get_contents('shizen_saigai_denshouhi_20220114.geojson')); ?>];
+	L.geoJSON(data_denshouhi, {
+		onEachFeature: onEachFeature
+	}).addTo(wmGroup);
+
 
 	var marker = L.marker([33.0,130.0], {icon: greenIcon});
 
 	//Mapをクリックした時ピンを立ててフォームに緯度経度を自動入力
-	function onMapClick(e) {
-		marker.on('click', function() { map.removeLayer(marker); });
+	// function onMapClick(e) {
+	// 	marker.on('click', function() { map.removeLayer(marker); });
 			
-		marker
-				.setLatLng(e.latlng)
-				.bindPopup('<input id="copyTarget" type="text" value="' + e.latlng.lat + ',' + e.latlng.lng + '" readonly><button onclick="copyToClipboard();">copy</button><span id="copied" style="color: green; font-size: xx-small;"></span>')
-				.openPopup()
-				.addTo(map);
-	}
-	map.on('click', onMapClick);
+	// 	marker
+	// 			.setLatLng(e.latlng)
+	// 			.bindPopup('<input id="copyTarget" type="text" value="' + e.latlng.lat + ',' + e.latlng.lng + '" readonly><button onclick="copyToClipboard();">copy</button><span id="copied" style="color: green; font-size: xx-small;"></span>')
+	// 			.openPopup()
+	// 			.addTo(map);
+	// }
+	// map.on('click', onMapClick);
 
 	//レイヤー記述
 	const baseLayer = {
@@ -237,7 +259,7 @@
 
 	const myLayer = {
 		"歴史地名データ": rekishiGroup,
-		"佐賀県の災害歴史遺産": wmGroup,
+		"災害歴史遺産・伝承碑": wmGroup,
 		"浸水ハザードマップ": data1,
 		'治水地形分類図 <a href="https://cyberjapandata.gsi.go.jp/legend/lcmfc2_legend.jpg" target="_blank">凡例</a>': data2,
 	}

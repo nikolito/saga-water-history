@@ -2,7 +2,7 @@
 //Google Spread Sheet APIにアクセス
 require __DIR__ . '/vendor/autoload.php';
 
-$key = '*****.json'; サービスアカウント
+$key = '*****.json'; //サービスアカウント
 $sheet_id = "*****"; //water_history_memorials sheet ID
 
 $client = new \Google_Client();

@@ -60,14 +60,14 @@
             <a class="navbar-brand" href="index.php">水歴史マップデータ入力</a>
             <div>
                 <a href="https://docs.google.com/spreadsheets/d/1jOjbaxRrez2cjwgqZjdF_eotzcqNszAHMJXpe-ZZg4Q/edit#gid=0" target="_blank" style="color: white;">スプレッドシート</a>
-                <a href="https://winter.ai.is.saga-u.ac.jp/map/map.php" target="_blank" style="color: white;">地図</a>
+                <a href="https://winter.ai.is.saga-u.ac.jp/map/map.html" target="_blank" style="color: white;">地図</a>
             </div>
         </div>
     </nav>
 
     <main class="container-fluid m-0 p-0 h-50">
         <!-- マップ表示部 -->
-        <iframe id="map" title="map" width="100%" height="100%" src="https://winter.ai.is.saga-u.ac.jp/map/map.php">
+        <iframe id="map" title="map" width="100%" height="100%" src="https://winter.ai.is.saga-u.ac.jp/map/map.html">
         </iframe>
 
         <!-- フォーム表示部 -->
