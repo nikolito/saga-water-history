@@ -8,6 +8,7 @@
 - 「[電子国土基本図](https://maps.gsi.go.jp/development/ichiran.html)」国土地理院
 - 「[国管理河川_洪水浸水想定区域（想定最大規模）](https://disaportal.gsi.go.jp/hazardmap/copyright/opendata.html#l2shinsuishin)」国土交通省各地方整備局（浸水ハザードマップ）
 - 「[治水地形分類図 更新版](https://maps.gsi.go.jp/development/ichiran.html)」国土地理院
+- 「[自然災害伝承碑](https://www.gsi.go.jp/bousaichiri/denshouhi.html)」国土地理院
 - 「佐賀県の災害歴史遺産」佐賀県防災士会 誠文堂印刷株式会社 平成27年から抽出した[地理データ](https://docs.google.com/spreadsheets/d/1VPCFGAjPtlZ-VbG1cnmNBH4UURTKLKXuFp2ebWKoxck/edit#gid=0)（入力者はanonymousに変えています）
 - 「[歴史地名データ](https://www.nihu.jp/ja/publication/source_map)」大学共同利用機関法人人間文化研究機構、および、京都大学東南アジア地域研究研究所を主体とするH-GIS研究会 （佐賀県（肥前国）抜粋）　
 
