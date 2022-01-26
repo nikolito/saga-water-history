@@ -1,6 +1,8 @@
 # 佐賀水歴史マップ入力ツール（UDC2021）
 
 オープンデータと地元の紙資料を地理データにおこして同じ地図に重ねてマッピングするための簡単なツールです
+ツールのソースコードはCC BYとします
+ソースコード中のCSVやGeojsonを使用する場合は、各データの出典を明示してください
 
 [Leaflet](https://leafletjs.com)でブラウザでの地理情報可視化, [Google API Client](https://github.com/googleapis/google-api-ruby-client)でスプレッドシートのデータを読み書きします
 
