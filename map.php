@@ -160,7 +160,7 @@
 	<?php
 	include_once 'google-spread-sheet-api.php';
 	$sheet_name = "シート1"; // シートを指定
-	$sheet_range = "A2:K1000"; // 範囲を指定。開始から終了まで斜めで囲む感じです。
+	$sheet_range = "A2:K1000"; // 全範囲
 	$response = $sheet->spreadsheets_values->get($sheet_id, $sheet_name . '!' . $sheet_range);
 	$records = $response->getValues();
 	?>
@@ -243,16 +243,16 @@
 
 	//入力作業するときは、コメントアウト部分を解除
 	//Mapをクリックした時ピンを立ててフォームに緯度経度を自動入力
-	// function onMapClick(e) {
-	// 	marker.on('click', function() { map.removeLayer(marker); });
+	function onMapClick(e) {
+		marker.on('click', function() { map.removeLayer(marker); });
 
-	// 	marker
-	// 			.setLatLng(e.latlng)
-	// 			.bindPopup('<input id="copyTarget" type="text" value="' + e.latlng.lat + ',' + e.latlng.lng + '" readonly><button onclick="copyToClipboard();">copy</button><span id="copied" style="color: green; font-size: xx-small;"></span>')
-	// 			.openPopup()
-	// 			.addTo(map);
-	// }
-	// map.on('click', onMapClick);
+		marker
+				.setLatLng(e.latlng)
+				.bindPopup('<input id="copyTarget" type="text" value="' + e.latlng.lat + ',' + e.latlng.lng + '" readonly><button onclick="copyToClipboard();">copy</button><span id="copied" style="color: green; font-size: xx-small;"></span>')
+				.openPopup()
+				.addTo(map);
+	}
+	map.on('click', onMapClick);
 
 	//レイヤー記述
 	const baseLayer = {
@@ -262,8 +262,8 @@
 	}
 
 	const myLayer = {
-		"歴史地名データ": rekishiGroup,
-		"災害歴史遺産・伝承碑": wmGroup,
+		'歴史地名データ <a href="legends.html" target="_blank">凡例</a>': rekishiGroup,
+		'災害歴史遺産・伝承碑 <a href="legends.html" target="_blank">凡例</a>': wmGroup,
 		"浸水ハザードマップ": data1,
 		'治水地形分類図 <a href="https://cyberjapandata.gsi.go.jp/legend/lcmfc2_legend.jpg" target="_blank">凡例</a>': data2,
 	}
